@@ -1,5 +1,5 @@
 
-# 📝 Proof of Concept (POC): SharePoint Vulnerability Detection
+# 📝 Proof OF Concept (POC): SharePoint Vulnerability Detection
 
 This repository contains a step-by-step guide to identify SharePoint installations and validate vulnerabilities. The goal is to automate the process of finding vulnerable SharePoint instances and testing them for potential security issues.
 
