@@ -1,9 +1,9 @@
 
-# Proof of Concept (POC): SharePoint Vulnerability Detection
+# 📝 Proof of Concept (POC): SharePoint Vulnerability Detection
 
 This repository contains a step-by-step guide to identify SharePoint installations and validate vulnerabilities. The goal is to automate the process of finding vulnerable SharePoint instances and testing them for potential security issues.
 
-## Requirements
+## ⌛ Requirements
 
 - **Tools**:  
   - [Subfinder](https://github.com/projectdiscovery/subfinder)  
@@ -18,24 +18,24 @@ This repository contains a step-by-step guide to identify SharePoint installatio
 
 ---
 
-## Steps
+## 🔍 Steps
 
 ### 1. Find Target Subdomains
 Use `subfinder` to enumerate subdomains of the target domain. Save the output to a file for further processing.
 ```bash
-subfinder -d target.com -o subdomains.txt
+subfinder -d target.com -o subdomain_targets.txt
 ```
 
 ### 2. Identify Active SharePoint Instances
 Use `httpx` to check for live hosts and store potential SharePoint candidates.
 ```bash
-httpx -l subdomains.txt -o active_sharepoints.txt
+httpx -l subdomain_targets.txt -o active_sharepoints.txt
 ```
 
 ### 3. Detect SharePoint Technology
 Run `nuclei` to confirm if the hosts in the list use SharePoint.
 ```bash
-nuclei -l active_sharepoints.txt -t nuclei-templates/technologies/sharepoint-detection.yaml
+nuclei -l active_sharepoints.txt -t Exposed-Sharepoint.yaml
 ```
 
 ### 4. Validate Vulnerability
@@ -47,7 +47,7 @@ cat lists.wsdl
 
 ---
 
-## Alternative Methods to Identify SharePoint Sites
+## 📝 Alternative Methods to Identify SharePoint Sites
 
 ### Using Search Engines
 - **FOFA**:  
@@ -63,7 +63,7 @@ cat lists.wsdl
 
 ## References
 
-Here are real-world examples of SharePoint vulnerabilities reported on HackerOne:
+Here are real-world examples of SharePoint vulnerabilities reported on HackerOne :
 
 - [HackerOne Report 761617](https://hackerone.com/reports/761617)  
 - [HackerOne Report 2180018](https://hackerone.com/reports/2180018)  
@@ -72,6 +72,13 @@ Here are real-world examples of SharePoint vulnerabilities reported on HackerOne
 - [HackerOne Report 920401](https://hackerone.com/reports/920401)  
 
 ---
+## ⚠️ Disclaimer
 
-## Notes
-Ensure you have proper authorization before testing any domains. Unauthorized access or testing may violate laws and regulations.
+This repository is intended for **educational purposes only**. Use of these exploits on systems or websites without explicit permission is illegal and unethical. The creator is not responsible for any misuse of this information.
+
+## 💰 Support Me  
+
+If you find this work helpful, you can support me:  
+- [![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://buymeacoffee.com/ghost_sec)  
+
+Thanks for your support! ❤️
