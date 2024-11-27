@@ -1,0 +1,43 @@
+id: EXPOSED
+
+info:
+  name: SharePoint Sensitive Endpoints
+  author: Ghost_Sec #Don't.Replace.Kiddies
+  #____ _               _   ____             ___   ___  
+ #/ ___| |__   ___  ___| |_/ ___|  ___  ___ / _ \ / _ \ 
+#| |  _| '_ \ / _ \/ __| __\___ \ / _ \/ __| | | | | | |
+#| |_| | | | | (_) \__ \ |_ ___) |  __/ (__| |_| | |_| |
+ #\____|_| |_|\___/|___/\__|____/ \___|\___|\___/ \___/ 
+  severity: medium
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/_vti_bin/lists.asmx?WSDL"
+      - "{{BaseURL}}/_vti_bin/sitedata.asmx?WSDL"
+      - "{{BaseURL}}/_vti_bin/webs.asmx?WSDL"
+      - "{{BaseURL}}/_vti_bin/usergroup.asmx?WSDL"
+      - "{{BaseURL}}/_layouts/15/viewlsts.aspx"
+      - "{{BaseURL}}/sites/SharedDocuments/Forms/AllItems.aspx"
+      - "{{BaseURL}}/Shared%20Documents/"
+    matchers-condition: or
+    matchers:
+      - type: word
+        words:
+          - "GetListResponse"
+          - "GetList"
+        part: body
+      - type: regex
+        regex:
+          - ".*\\.docx"
+          - ".*\\.xlsx"
+          - ".*\\.pdf"
+        part: body
+      - type: regex
+        regex:
+          - "MicrosoftSharePointTeamServices/[0-9\\.]+"
+        part: header
+      - type: status
+        status:
+          - 200
+          - 401
