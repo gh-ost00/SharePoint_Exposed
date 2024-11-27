@@ -11,11 +11,6 @@ This repository contains a step-by-step guide to identify SharePoint installatio
   - [Nuclei](https://github.com/projectdiscovery/nuclei)  
   - [wget](https://www.gnu.org/software/wget/)  
 
-- **Accounts for Search Engines**:  
-  - FOFA  
-  - Shodan  
-  - ZoomEye  
-
 ---
 
 ## 🔍 Steps
@@ -61,7 +56,7 @@ cat lists.wsdl
 
 ---
 
-## References
+## ⭐ References
 
 Here are real-world examples of SharePoint vulnerabilities reported on HackerOne :
 
