@@ -39,7 +39,7 @@ Retrieve the `lists.wsdl` file to check for potential vulnerabilities in SharePo
 wget "https://example.sharepoint.com/_vti_bin/lists.asmx?WSDL" -O lists.wsdl
 cat lists.wsdl
 ```
-
+### You can also view FrontPage Configuration Information via (_vti_inf.html)
 ---
 
 ## 📝 Alternative Methods to Identify SharePoint Sites
