@@ -87,7 +87,7 @@ Here’s a brief summary of how to mitigate the vulnerability of exposed SharePo
 1. Keep SharePoint up-to-date with the latest security patches.
 2. Follow best configuration practices for securing the SharePoint environment.
 
-✅ Use a Web Application Firewall (WAF):
+✅ Use a Web Application Firewall (WAF) :
 Implement a WAF to filter and protect SharePoint endpoints from malicious traffic.
 
 ✅ Encrypt Data :
